@@ -32,10 +32,17 @@
   font-size: 2rem;
 }
 .cell.color-black {
-  background: #f1faee;
+  background: #242424;
 }
 .cell.color-white {
   background: #1d3557;
+}
+
+.piece {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .piece.black {
@@ -45,3 +52,4 @@
 .piece.white {
   color: #fcbf49
 }
+

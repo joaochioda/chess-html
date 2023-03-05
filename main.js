@@ -1,4 +1,5 @@
 import './style.css'
+import { movePiece } from './movePiece';
 
 const eightPositionArray = new Array(8).fill(0);
 
@@ -67,7 +68,7 @@ const board = eightPositionArray.forEach((_, r) => {
     const pieceColor = piece ? piece.color : ''
 
     document.querySelector('#board').innerHTML += `<div class="cell ${black ? 'color-black': 'color-white'}">
-      <span class="piece ${pieceColor}">
+      <span id=piece class="piece ${pieceColor}">
        ${pieceImage}
       </span>
     </div>`
@@ -77,3 +78,11 @@ const board = eightPositionArray.forEach((_, r) => {
 if (board) {
   document.querySelector('#board').innerHTML = board.join('')
 }
+
+const pieces = document.querySelectorAll('#piece')
+
+pieces.forEach(piece => {
+  piece.onmousedown = function(event) {
+    movePiece(event, piece)
+  }
+})
